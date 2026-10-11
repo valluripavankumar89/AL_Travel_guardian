@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Travel Guardian — Your Safety, Our Mission</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="logo-icon">🛡️</div>
+        <span class="logo-text">TravelGuardian <span class="logo-ai">AI</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-outline">Log In</button>
+        <button class="btn-primary">Get Protected</button>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+      <button class="btn-primary full-width">Get Protected</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        AI-Powered Protection · Live Now
+      </div>
+      <h1 class="hero-title">
+        Travel the World.<br/>
+        <span class="gradient-text">Stay Safe. Always.</span>
+      </h1>
+      <p class="hero-subtitle">
+        The world's first AI Safety Guardian for travelers. Live risk scores, instant emergency response, scam detection, and safe route navigation — all in one app.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-hero-primary" onclick="openDemo()">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          See Live Demo
+        </button>
+        <button class="btn-hero-outline" onclick="scrollToFeatures()">
+          Explore Features
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">2M+</div>
+          <div class="stat-label">Travelers Protected</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Scam Detection Rate</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">&lt;3s</div>
+          <div class="stat-label">Emergency Response</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-phone">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-status-bar">
+            <span>9:41</span>
+            <div class="status-icons">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M1.5 8.5C5.3 4.5 10.4 2 16 2s10.7 2.5 14.5 6.5"/><path d="M5.5 12.5C8.1 9.8 11.9 8 16 8s7.9 1.8 10.5 4.5"/><path d="M9.5 16.5c1.6-1.8 3.9-3 6.5-3s4.9 1.2 6.5 3"/><circle cx="16" cy="20" r="2"/></svg>
+              🔋
+            </div>
+          </div>
+          <div class="app-header">
+            <div class="app-logo">🛡️ TravelGuardian</div>
+            <div class="app-location">📍 Connaught Place, Delhi</div>
+          </div>
+
+          <!-- Live Risk Score -->
+          <div class="risk-widget" id="riskWidget">
+            <div class="risk-header">
+              <span class="risk-label">LIVE RISK SCORE</span>
+              <span class="risk-live-dot"></span>
+            </div>
+            <div class="risk-score-display">
+              <div class="risk-circle medium" id="riskCircle">
+                <div class="risk-number" id="riskNumber">6.2</div>
+                <div class="risk-text" id="riskText">MEDIUM</div>
+              </div>
+              <div class="risk-factors">
+                <div class="risk-factor">
+                  <span class="factor-icon">👥</span>
+                  <span>Heavy crowd</span>
+                </div>
+                <div class="risk-factor">
+                  <span class="factor-icon">🌧️</span>
+                  <span>Rain forecast</span>
+                </div>
+                <div class="risk-factor">
+                  <span class="factor-icon">⚠️</span>
+                  <span>2 scam reports</span>
+                </div>
+                <div class="risk-factor">
+                  <span class="factor-icon">💡</span>
+                  <span>Poor lighting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scam Alert -->
+          <div class="scam-alert-widget" id="scamAlert" style="display:none;">
+            <div class="scam-header">
+              <span>⚠️ SCAM ALERT DETECTED</span>
+            </div>
+            <div class="scam-body">
+              <div class="fare-comparison">
+                <div class="fare-item quoted">
+                  <div class="fare-label">Quoted Fare</div>
+                  <div class="fare-amount">₹2,500</div>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="fare-item normal">
+                  <div class="fare-label">Normal Fare</div>
+                  <div class="fare-amount">₹700</div>
+                </div>
+              </div>
+              <div class="scam-msg">🚨 Possible overcharging detected! Refuse and find metered taxi.</div>
+            </div>
+          </div>
+
+          <!-- Emergency Button -->
+          <div class="emergency-widget" id="emergencyWidget" style="display:none;">
+            <div class="emergency-steps">
+              <div class="e-step active" id="eStep1">📍 Location Shared</div>
+              <div class="e-step" id="eStep2">🚔 Police Notified</div>
+              <div class="e-step" id="eStep3">👨‍👩‍👧 Family Alerted</div>
+              <div class="e-step" id="eStep4">🏥 Hospital Found</div>
+              <div class="e-step" id="eStep5">🏛️ Embassy Contacted</div>
+            </div>
+          </div>
+
+          <!-- Phone action buttons -->
+          <div class="phone-actions">
+            <button class="phone-btn safe-route" onclick="showSafeRoute()">
+              🗺️ Safe Route
+            </button>
+            <button class="phone-btn scam-check" onclick="showScamAlert()">
+              💰 Fare Check
+            </button>
+            <button class="phone-btn emergency-btn" onclick="triggerEmergency()">
+              🆘 SOS
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Floating cards around phone -->
+      <div class="float-card card1">
+        <div class="fc-icon">🛡️</div>
+        <div class="fc-text">
+          <div class="fc-title">Safe Zone</div>
+          <div class="fc-sub">Verified area</div>
+        </div>
+      </div>
+      <div class="float-card card2">
+        <div class="fc-icon">⚡</div>
+        <div class="fc-text">
+          <div class="fc-title">SOS Sent</div>
+          <div class="fc-sub">Police in 2 min</div>
+        </div>
+      </div>
+      <div class="float-card card3">
+        <div class="fc-icon">🚨</div>
+        <div class="fc-text">
+          <div class="fc-title">Scam Blocked</div>
+          <div class="fc-sub">Saved ₹1,800</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM SECTION -->
+  <section class="problem-section" id="problem">
+    <div class="container">
+      <div class="section-tag">The Problem</div>
+      <h2 class="section-title">Millions of Tourists Face <span class="gradient-text">Hidden Dangers</span></h2>
+      <p class="section-subtitle">Every year, countless travelers experience threats that current travel apps completely ignore.</p>
+      <div class="problem-grid">
+        <div class="problem-card" data-aos="fade-up">
+          <div class="problem-icon">🎭</div>
+          <div class="problem-stat">73%</div>
+          <h3>Scammed Abroad</h3>
+          <p>Of international tourists report being overcharged or scammed at least once per trip</p>
+        </div>
+        <div class="problem-card danger" data-aos="fade-up" data-delay="100">
+          <div class="problem-icon">🚨</div>
+          <div class="problem-stat">2.1M</div>
+          <h3>Safety Incidents</h3>
+          <p>Travel-related safety incidents reported globally every year — with no real-time app protection</p>
+        </div>
+        <div class="problem-card" data-aos="fade-up" data-delay="200">
+          <div class="problem-icon">👩</div>
+          <div class="problem-stat">68%</div>
+          <h3>Solo Women Afraid</h3>
+          <p>Of solo female travelers feel unsafe and lack proper tools to assess risk in unfamiliar areas</p>
+        </div>
+        <div class="problem-card" data-aos="fade-up" data-delay="300">
+          <div class="problem-icon">🗺️</div>
+          <div class="problem-stat">0</div>
+          <h3>Safety-First Apps</h3>
+          <p>Existing travel apps focus only on booking — none provide real-time AI safety intelligence</p>
+        </div>
+      </div>
+      <div class="problem-highlight">
+        <div class="ph-icon">💡</div>
+        <div class="ph-text">
+          <strong>Current apps book hotels. Nobody protects you throughout the journey.</strong><br/>
+          That's the gap TravelGuardian AI fills — a 24/7 AI companion that watches over you the entire trip.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-tag">Core Features</div>
+      <h2 class="section-title">Your <span class="gradient-text">AI Guardian</span> Never Sleeps</h2>
+      <p class="section-subtitle">Six intelligent layers of protection working simultaneously to keep you safe.</p>
+
+      <div class="features-grid">
+
+        <!-- Feature 1 -->
+        <div class="feature-card featured" onclick="activateFeature(this, 'risk')">
+          <div class="feature-glow"></div>
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">📊</div>
+          </div>
+          <h3>Live Risk Score</h3>
+          <p>AI analyzes crowd density, weather, lighting, scam reports, and crime data to give you a real-time risk level before you enter any area.</p>
+          <div class="feature-demo risk-demo">
+            <div class="risk-bars">
+              <div class="risk-bar-item">
+                <span>Crowd</span>
+                <div class="bar-track"><div class="bar-fill" style="width:75%; background: #f59e0b;"></div></div>
+                <span>High</span>
+              </div>
+              <div class="risk-bar-item">
+                <span>Crime</span>
+                <div class="bar-track"><div class="bar-fill" style="width:40%; background: #10b981;"></div></div>
+                <span>Low</span>
+              </div>
+              <div class="risk-bar-item">
+                <span>Weather</span>
+                <div class="bar-track"><div class="bar-fill" style="width:60%; background: #f59e0b;"></div></div>
+                <span>Med</span>
+              </div>
+              <div class="risk-bar-item">
+                <span>Scam</span>
+                <div class="bar-track"><div class="bar-fill" style="width:80%; background: #ef4444;"></div></div>
+                <span>High</span>
+              </div>
+            </div>
+          </div>
+          <div class="feature-tag">🔴 LIVE</div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card" onclick="activateFeature(this, 'emergency')">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">🆘</div>
+          </div>
+          <h3>AI Emergency Mode</h3>
+          <p>One tap triggers a cascade: location shared, police called, family notified, nearest hospital found, embassy contacted — all in under 3 seconds.</p>
+          <div class="feature-demo emergency-demo">
+            <div class="sos-flow">
+              <div class="sos-step s1">📍 Location</div>
+              <div class="sos-arrow">→</div>
+              <div class="sos-step s2">🚔 Police</div>
+              <div class="sos-arrow">→</div>
+              <div class="sos-step s3">👨‍👩‍👧 Family</div>
+              <div class="sos-arrow">→</div>
+              <div class="sos-step s4">🏥 Hospital</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card" onclick="activateFeature(this, 'route')">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">🗺️</div>
+          </div>
+          <h3>Safe Route Navigation</h3>
+          <p>Not the fastest path — the safest path. AI routes you through well-lit, low-crime, verified safe corridors instead of shortest distance.</p>
+          <div class="feature-demo route-demo">
+            <div class="route-compare">
+              <div class="route-option fast">
+                <div class="route-label">Shortest</div>
+                <div class="route-path dangerous-path">
+                  <div class="path-dot start"></div>
+                  <div class="path-line danger-line"></div>
+                  <div class="path-dot end"></div>
+                </div>
+                <div class="route-tags"><span class="tag-bad">⚠️ Unsafe</span></div>
+              </div>
+              <div class="route-option safe">
+                <div class="route-label">AI Safe Route</div>
+                <div class="route-path safe-path">
+                  <div class="path-dot start"></div>
+                  <div class="path-line safe-line"></div>
+                  <div class="path-dot end"></div>
+                </div>
+                <div class="route-tags"><span class="tag-good">✅ Verified Safe</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card" onclick="activateFeature(this, 'scam')">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">💰</div>
+          </div>
+          <h3>Scam Alert System</h3>
+          <p>AI cross-references local fare databases, tourist trap hotspots, and community reports to instantly detect overcharging and common scams.</p>
+          <div class="feature-demo scam-demo">
+            <div class="fare-check-demo">
+              <div class="fare-quoted">
+                <span class="fare-x">✗</span>
+                <span class="fare-price-bad">₹2,500</span>
+                <span class="fare-note">Quoted</span>
+              </div>
+              <div class="fare-real">
+                <span class="fare-check">✓</span>
+                <span class="fare-price-good">₹700</span>
+                <span class="fare-note">Fair Price</span>
+              </div>
+              <div class="scam-badge">🚨 SCAM DETECTED</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card" onclick="activateFeature(this, 'weather')">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">🌪️</div>
+          </div>
+          <h3>Weather & Natural Risk</h3>
+          <p>Monitors floods, landslides, cyclones, and extreme weather in real time. Alerts you before conditions become dangerous.</p>
+          <div class="feature-demo weather-demo">
+            <div class="weather-alerts">
+              <div class="weather-item ok">☀️ Clear skies at destination</div>
+              <div class="weather-item warn">🌊 Flash flood warning — 12km away</div>
+              <div class="weather-item ok">🏔️ Mountain roads clear</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card" onclick="activateFeature(this, 'guide')">
+          <div class="feature-icon-wrap">
+            <div class="feature-icon">👤</div>
+          </div>
+          <h3>Verified Guide Check</h3>
+          <p>Instantly verify tour guides, taxis, and tourism services. AI checks licenses, reviews, and reports to filter out fake or dangerous operators.</p>
+          <div class="feature-demo guide-demo">
+            <div class="guide-card-demo">
+              <div class="guide-avatar">👨‍💼</div>
+              <div class="guide-info">
+                <div class="guide-name">Raju Kumar</div>
+                <div class="guide-verify">
+                  <span class="verify-badge">✅ Verified</span>
+                  <span class="guide-rating">⭐ 4.8</span>
+                </div>
+                <div class="guide-stats">320 trips · Licensed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-tag">How It Works</div>
+      <h2 class="section-title">Protection in <span class="gradient-text">3 Simple Steps</span></h2>
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <div class="step-icon">📱</div>
+            <h3>Open the App</h3>
+            <p>Launch TravelGuardian AI when you arrive at your destination. Share your location and trip details. The AI instantly begins monitoring your surroundings.</p>
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <div class="step-icon">🧠</div>
+            <h3>AI Monitors Everything</h3>
+            <p>Our AI engine continuously analyzes crowd data, crime reports, weather, lighting conditions, local scam hotspots, and community alerts — all in real time.</p>
+          </div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <div class="step-icon">🛡️</div>
+            <h3>Travel with Confidence</h3>
+            <p>Get proactive alerts, safe route suggestions, scam warnings, and emergency assistance whenever needed. Your AI guardian is always watching.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IS IT FOR -->
+  <section class="audience-section">
+    <div class="container">
+      <div class="section-tag">Who We Protect</div>
+      <h2 class="section-title">Built for <span class="gradient-text">Every Traveler</span></h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="aud-emoji">🚺</div>
+          <h3>Solo Women</h3>
+          <p>Travel the world fearlessly. Real-time safety scores, safe route navigation, and instant SOS keep you protected at all times.</p>
+          <div class="aud-features">
+            <span>✓ Night safety alerts</span>
+            <span>✓ Verified accommodations</span>
+            <span>✓ Silent SOS mode</span>
+          </div>
+        </div>
+        <div class="audience-card highlight">
+          <div class="aud-badge">Most Vulnerable</div>
+          <div class="aud-emoji">👴</div>
+          <h3>Senior Travelers</h3>
+          <p>Protect elderly tourists from exploitation, medical emergencies, and scams. Medical history integrated for faster emergency response.</p>
+          <div class="aud-features">
+            <span>✓ Medical alert mode</span>
+            <span>✓ Simplified interface</span>
+            <span>✓ Family monitoring</span>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="aud-emoji">🌍</div>
+          <h3>International Tourists</h3>
+          <p>Navigate foreign countries safely. Embassy contacts, local law info, currency scam alerts, and translation all in one place.</p>
+          <div class="aud-features">
+            <span>✓ Embassy contacts</span>
+            <span>✓ Currency alerts</span>
+            <span>✓ Language support</span>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="aud-emoji">🎒</div>
+          <h3>Backpackers</h3>
+          <p>Explore off-the-beaten-path safely. Route safety checks, hostel verification, and offline mode for remote areas.</p>
+          <div class="aud-features">
+            <span>✓ Offline maps</span>
+            <span>✓ Hostel verification</span>
+            <span>✓ Budget scam alerts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DEMO -->
+  <section class="demo-section" id="demo">
+    <div class="container">
+      <div class="section-tag">Interactive Demo</div>
+      <h2 class="section-title">Try It <span class="gradient-text">Right Now</span></h2>
+      <p class="section-subtitle">Experience how TravelGuardian AI responds to real scenarios.</p>
+
+      <div class="demo-container">
+        <div class="demo-scenarios">
+          <h3>Choose a Scenario</h3>
+          <div class="scenario-list">
+            <button class="scenario-btn active" onclick="runScenario('taxi')">
+              <span class="sc-icon">🚕</span>
+              <div>
+                <div class="sc-title">Taxi Scam</div>
+                <div class="sc-sub">Driver quotes ₹2,500</div>
+              </div>
+            </button>
+            <button class="scenario-btn" onclick="runScenario('unsafe')">
+              <span class="sc-icon">🌃</span>
+              <div>
+                <div class="sc-title">Unsafe Area</div>
+                <div class="sc-sub">Dark alley at night</div>
+              </div>
+            </button>
+            <button class="scenario-btn" onclick="runScenario('emergency')">
+              <span class="sc-icon">🆘</span>
+              <div>
+                <div class="sc-title">Emergency SOS</div>
+                <div class="sc-sub">Lost, feeling unsafe</div>
+              </div>
+            </button>
+            <button class="scenario-btn" onclick="runScenario('weather')">
+              <span class="sc-icon">🌊</span>
+              <div>
+                <div class="sc-title">Flood Warning</div>
+                <div class="sc-sub">Flash flood detected</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="demo-output">
+          <div class="demo-phone-mini">
+            <div class="dpm-header">
+              <span>🛡️ TravelGuardian AI</span>
+              <span class="dpm-live">● LIVE</span>
+            </div>
+            <div class="dpm-body" id="demoOutput">
+              <!-- Default: taxi scenario -->
+              <div class="demo-alert-card taxi-card">
+                <div class="alert-header warning">
+                  <span>⚠️ SCAM DETECTED</span>
+                  <span class="alert-time">Just now</span>
+                </div>
+                <div class="alert-body">
+                  <div class="alert-detail">
+                    <strong>Location:</strong> India Gate, New Delhi
+                  </div>
+                  <div class="fare-compare-demo">
+                    <div class="fcd-item bad">
+                      <div class="fcd-label">Quoted</div>
+                      <div class="fcd-price">₹2,500</div>
+                    </div>
+                    <div class="fcd-item good">
+                      <div class="fcd-label">Fair Fare</div>
+                      <div class="fcd-price">₹700</div>
+                    </div>
+                  </div>
+                  <div class="alert-recommendation">
+                    <strong>AI Recommendation:</strong> Decline this taxi. Use a metered cab or app-based taxi. Report to tourism police.
+                  </div>
+                  <div class="alert-actions">
+                    <button class="action-btn">📞 Tourism Police</button>
+                    <button class="action-btn primary-action">🗺️ Find Safe Taxi</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVENUE / PARTNERSHIPS -->
+  <section class="revenue-section">
+    <div class="container">
+      <div class="section-tag">Business Model</div>
+      <h2 class="section-title">Built to <span class="gradient-text">Scale Globally</span></h2>
+      <div class="revenue-grid">
+        <div class="rev-card">
+          <div class="rev-icon">💎</div>
+          <h3>Premium Subscription</h3>
+          <p>Individual travelers pay ₹499/month for full AI protection with all features unlocked.</p>
+          <div class="rev-tag">B2C</div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-icon">🏛️</div>
+          <h3>Government Partnerships</h3>
+          <p>Tourism ministries integrate our platform for national tourist safety programs and smart city initiatives.</p>
+          <div class="rev-tag">B2G</div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-icon">🏨</div>
+          <h3>Hotel Partnerships</h3>
+          <p>Hotels and resorts bundle TravelGuardian with bookings as a premium safety value-add for guests.</p>
+          <div class="rev-tag">B2B</div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-icon">🛡️</div>
+          <h3>Travel Insurance</h3>
+          <p>Insurance companies use our risk data to personalize coverage and collaborate on safety-first policies.</p>
+          <div class="rev-tag">InsurTech</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-tag">Pricing</div>
+      <h2 class="section-title">Start Free, <span class="gradient-text">Stay Safe</span></h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-tier">Free</div>
+          <div class="price-amount">₹0<span>/month</span></div>
+          <div class="price-desc">Basic protection for occasional travelers</div>
+          <ul class="price-features">
+            <li>✓ Basic risk score (3 checks/day)</li>
+            <li>✓ Emergency SOS (limited)</li>
+            <li>✓ 5 scam alerts/month</li>
+            <li>✗ Safe route navigation</li>
+            <li>✗ Real-time weather alerts</li>
+            <li>✗ Guide verification</li>
+          </ul>
+          <button class="price-btn outline-btn">Get Started Free</button>
+        </div>
+        <div class="price-card featured-price">
+          <div class="popular-badge">Most Popular</div>
+          <div class="price-tier">Guardian</div>
+          <div class="price-amount">₹499<span>/month</span></div>
+          <div class="price-desc">Complete AI protection for active travelers</div>
+          <ul class="price-features">
+            <li>✓ Unlimited live risk scores</li>
+            <li>✓ Full emergency mode (police + family + embassy)</li>
+            <li>✓ Unlimited scam detection</li>
+            <li>✓ AI safe route navigation</li>
+            <li>✓ Real-time weather & flood alerts</li>
+            <li>✓ Guide & taxi verification</li>
+          </ul>
+          <button class="price-btn primary-btn">Start 7-Day Free Trial</button>
+        </div>
+        <div class="price-card">
+          <div class="price-tier">Guardian Pro</div>
+          <div class="price-amount">₹999<span>/month</span></div>
+          <div class="price-desc">For frequent travelers & travel professionals</div>
+          <ul class="price-features">
+            <li>✓ Everything in Guardian</li>
+            <li>✓ Family plan (5 members)</li>
+            <li>✓ Offline maps & alerts</li>
+            <li>✓ Travel insurance integration</li>
+            <li>✓ Priority emergency response</li>
+            <li>✓ 24/7 human support</li>
+          </ul>
+          <button class="price-btn outline-btn">Get Pro</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-tag">Stories</div>
+      <h2 class="section-title">Travelers Who <span class="gradient-text">Trust Us</span></h2>
+      <div class="testimonials-grid">
+        <div class="test-card">
+          <div class="test-stars">⭐⭐⭐⭐⭐</div>
+          <p class="test-quote">"TravelGuardian detected a taxi scam and saved me ₹3,000 in Bangkok. The AI was faster than I could even react. Absolutely essential app."</p>
+          <div class="test-author">
+            <div class="test-avatar">👩</div>
+            <div>
+              <div class="test-name">Priya Sharma</div>
+              <div class="test-trip">Solo trip to Thailand</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-stars">⭐⭐⭐⭐⭐</div>
+          <p class="test-quote">"The flood warning alert redirected my route 20 minutes before a bridge got flooded. This app literally saved my life. No exaggeration."</p>
+          <div class="test-author">
+            <div class="test-avatar">👨</div>
+            <div>
+              <div class="test-name">Marco Ferretti</div>
+              <div class="test-trip">Backpacking through India</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-stars">⭐⭐⭐⭐⭐</div>
+          <p class="test-quote">"As a 68-year-old solo traveler, I finally feel confident exploring the world. The emergency mode gave my children peace of mind too."</p>
+          <div class="test-author">
+            <div class="test-avatar">👵</div>
+            <div>
+              <div class="test-name">Margaret Chen</div>
+              <div class="test-trip">Europe solo tour</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <div class="cta-orb orb1"></div>
+      <div class="cta-orb orb2"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content">
+        <div class="cta-badge">🛡️ Join 2 Million+ Protected Travelers</div>
+        <h2 class="cta-title">Ready to Travel <span class="gradient-text">Without Fear?</span></h2>
+        <p class="cta-subtitle">Download TravelGuardian AI and start your free 7-day trial today. No credit card required.</p>
+        <div class="cta-buttons">
+          <button class="btn-hero-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.37c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.39-1.32 2.76-2.53 4.02zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            Download for iOS
+          </button>
+          <button class="btn-hero-primary android-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1-2.18-2.18V9.36a2.18 2.18 0 0 1 4.36 0v4.1a2.18 2.18 0 0 1-2.18 2.18m11.64 0a2.18 2.18 0 0 1-2.18-2.18V9.36a2.18 2.18 0 0 1 4.36 0v4.1a2.18 2.18 0 0 1-2.18 2.18M3.5 8h17A1.5 1.5 0 0 1 22 9.5v5A1.5 1.5 0 0 1 20.5 16h-17A1.5 1.5 0 0 1 2 14.5v-5A1.5 1.5 0 0 1 3.5 8z"/></svg>
+            Download for Android
+          </button>
+        </div>
+        <div class="cta-trust">
+          <span>🔒 Bank-level encryption</span>
+          <span>·</span>
+          <span>🚫 No data sold</span>
+          <span>·</span>
+          <span>⭐ 4.9/5 rating</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">🛡️ TravelGuardian <span class="logo-ai">AI</span></div>
+          <p>Making travel safer for everyone, everywhere. AI-powered protection for the modern traveler.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">LinkedIn</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Download</a>
+            <a href="#">Enterprise</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Press</a>
+            <a href="#">Blog</a>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Safety Tips</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TravelGuardian AI. All rights reserved.</span>
+        <span>Built with ❤️ for safer travel</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SOS MODAL -->
+  <div class="modal-overlay" id="sosModal" onclick="closeSosModal(event)">
+    <div class="modal-box">
+      <div class="modal-header emergency-header">
+        <div class="sos-pulse">🆘</div>
+        <h2>EMERGENCY MODE ACTIVATED</h2>
+        <div class="modal-sub">Executing emergency protocol...</div>
+      </div>
+      <div class="modal-steps" id="modalSteps">
+        <div class="modal-step" id="ms1">
+          <div class="ms-icon">📍</div>
+          <div class="ms-text">
+            <div class="ms-title">Sharing Location</div>
+            <div class="ms-detail">GPS coordinates sent</div>
+          </div>
+          <div class="ms-status pending">⏳</div>
+        </div>
+        <div class="modal-step" id="ms2">
+          <div class="ms-icon">🚔</div>
+          <div class="ms-text">
+            <div class="ms-title">Contacting Police</div>
+            <div class="ms-detail">Nearest station: 0.8 km</div>
+          </div>
+          <div class="ms-status pending">⏳</div>
+        </div>
+        <div class="modal-step" id="ms3">
+          <div class="ms-icon">👨‍👩‍👧</div>
+          <div class="ms-text">
+            <div class="ms-title">Notifying Family</div>
+            <div class="ms-detail">Sending location + SOS</div>
+          </div>
+          <div class="ms-status pending">⏳</div>
+        </div>
+        <div class="modal-step" id="ms4">
+          <div class="ms-icon">🏥</div>
+          <div class="ms-text">
+            <div class="ms-title">Nearest Hospital</div>
+            <div class="ms-detail">Apollo Hospital — 1.2 km</div>
+          </div>
+          <div class="ms-status pending">⏳</div>
+        </div>
+        <div class="modal-step" id="ms5">
+          <div class="ms-icon">🏛️</div>
+          <div class="ms-text">
+            <div class="ms-title">Contacting Embassy</div>
+            <div class="ms-detail">Indian Embassy: +91-11-2301-xxxx</div>
+          </div>
+          <div class="ms-status pending">⏳</div>
+        </div>
+      </div>
+      <button class="modal-close-btn" onclick="document.getElementById('sosModal').classList.remove('active')">
+        Cancel Emergency
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
